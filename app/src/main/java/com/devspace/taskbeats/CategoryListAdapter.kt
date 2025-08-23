@@ -43,11 +43,11 @@ class CategoryListAdapter :
 
     companion object : DiffUtil.ItemCallback<CategoryUiData>() {
         override fun areItemsTheSame(oldItem: CategoryUiData, newItem: CategoryUiData): Boolean {
-            return oldItem == newItem
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: CategoryUiData, newItem: CategoryUiData): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem == newItem
         }
 
     }

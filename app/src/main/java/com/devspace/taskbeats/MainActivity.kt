@@ -16,12 +16,17 @@ class MainActivity : AppCompatActivity() {
         val taskAdapter = TaskListAdapter()
         val categoryAdapter = CategoryListAdapter()
 
+        // Ensure categories are laid out horizontally
+        rvCategory.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        // Ensure tasks list has a linear layout manager
+        rvTask.layoutManager = LinearLayoutManager(this)
+
         categoryAdapter.setOnClickListener { selected ->
             val categoryTemp = categories.map { item ->
-                when {
-                    item.name == selected.name && !item.isSelected -> item.copy(isSelected = true)
-                    item.name == selected.name && item.isSelected -> item.copy(isSelected = false)
-                    else -> item
+                if (selected.name == "ALL") {
+                    item.copy(isSelected = item.name == "ALL")
+                } else {
+                    item.copy(isSelected = item.name == selected.name)
                 }
             }
 
@@ -47,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 val categories = listOf(
     CategoryUiData(
         name = "ALL",
-        isSelected = false
+        isSelected = true
     ),
     CategoryUiData(
         name = "STUDY",
