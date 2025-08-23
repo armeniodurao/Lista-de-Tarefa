@@ -34,11 +34,11 @@ class TaskListAdapter :
 
     companion object : DiffUtil.ItemCallback<TaskUiData>() {
         override fun areItemsTheSame(oldItem: TaskUiData, newItem: TaskUiData): Boolean {
-            return oldItem == newItem
+            return oldItem.name == newItem.name && oldItem.category == newItem.category
         }
 
         override fun areContentsTheSame(oldItem: TaskUiData, newItem: TaskUiData): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem == newItem
         }
 
     }
