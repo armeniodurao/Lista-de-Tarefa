@@ -1,17 +1,18 @@
 pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
+	repositories {
+		gradlePluginPortal()
+		google()
+		mavenCentral()
+	}
 }
 
-rootProject.name = "TaskBeats"
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+	repositories {
+		google()
+		mavenCentral()
+	}
+}
+
+rootProject.name = "StudyAI"
 include(":app")
