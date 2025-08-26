@@ -1,6 +1,7 @@
 plugins {
 	id("com.android.application")
 	id("org.jetbrains.kotlin.android")
+	id("org.jetbrains.kotlin.kapt")
 	id("com.google.devtools.ksp")
 	id("com.google.dagger.hilt.android")
 }
@@ -69,7 +70,7 @@ dependencies {
 
 	// Hilt
 	implementation("com.google.dagger:hilt-android:2.51")
-	ksp("com.google.dagger:hilt-compiler:2.51")
+	kapt("com.google.dagger:hilt-android-compiler:2.51")
 	implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 	// Coroutines

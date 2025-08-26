@@ -29,15 +29,7 @@ class StudyRepositoryImpl(
 	}
 
 	override suspend fun toggleCompleted(id: Long, completed: Boolean) {
-		// A simple update by re-reading would be ideal; for brevity, update via fetch-all and find.
-		// In production, add a @Query updateById.
-		// Here we keep it simple to avoid expanding DAO.
-		// This function is not called in a super hot path.
-		val current = dao.observeAll()
-			// We can't collect here synchronously; simplify by issuing a naive update path would require extra API.
-			// Adjust DAO to support updating completion directly.
-			// So we will add a DAO query for this use case.
-		throw NotImplementedError("Use updateCompletedById query in DAO; adjust DAO accordingly.")
+		dao.updateCompletedById(id, completed)
 	}
 
 	override suspend fun deleteTask(id: Long) {

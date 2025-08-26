@@ -1,7 +1,6 @@
 package com.example.studyai.data
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -24,4 +23,7 @@ interface StudyDao {
 
 	@Query("DELETE FROM study_tasks WHERE id = :id")
 	suspend fun deleteById(id: Long)
+
+	@Query("UPDATE study_tasks SET completed = :completed WHERE id = :id")
+	suspend fun updateCompletedById(id: Long, completed: Boolean)
 }

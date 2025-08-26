@@ -13,7 +13,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.studyai.R
 
 sealed class Screen(val route: String, val label: String, val iconRes: Int) {
 	data object Dashboard : Screen("dashboard", "Planejamento", android.R.drawable.ic_menu_agenda)
